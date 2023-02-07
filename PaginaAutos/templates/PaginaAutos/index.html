@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Cars Library</title>
+
+        <!-- CSS FILES -->    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">                    
+        <link href="{% static 'PaginaAutos/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link href="{% static 'PaginaAutos/css/tooplate-crispy-kitchen.css' %}" rel="stylesheet">
+        <style>
+            body {
+            background-color: #ddd;
+            padding: 80px 16px 16px 16px;
+            }
+            .custom-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            }
+            .div_vert{
+            background-color:#f62b53;
+            padding-right: 15px;
+            padding-bottom: 22px;
+            height: 766px;
+            width: 13px;
+            }
+            .div_horizontal{
+            background-color:#f62b53;
+            padding-left: 105px;
+            padding-bottom: 22px;
+            width: 1233px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+            <div class="contenedor-5">
+            <div class="container-fluid btn-toggler">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="container contenedor-5">
+                
+                <a class="navbar-brand" href="{% url 'autos-inicio' %}">
+                    Cars Library
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'autos-modelos' %}">Autos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'autos-chat' %}">Chat Global</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'marcas-list' %}">Marcas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                        </li>                      
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'sobre-nosotros' %}">Sobre Nosotros</a>
+                        </li>                      
+                    </ul>
+                </div>
+                {% if request.user.is_authenticated %}
+                <div class="d-none d-lg-block"> 
+                    <a class="custom-btn btn btn-danger btn-login" href="{% url 'auth-logout'%}">Logout</a>
+                    <a class="custom-btn btn btn-danger btn-login" href="{% url 'auth-edit' %}">Perfil</a> 
+                </div>
+                {% else %}
+                <div class="d-none d-lg-block">
+                    <a class="custom-btn btn btn-danger btn-login" href="{% url 'auth-login' %}">Login</a>
+                    <a class="custom-btn btn btn-danger btn-login" href="{% url 'auth-register' %}">Register</a> 
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-white p-4">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'autos-modelos' %}">Autos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'autos-chat' %}">Chat Global</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'marcas-list' %}">Marcas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                        </li>                   
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'sobre-nosotros' %}">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    <main>
+        
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-12 m-auto">
+                        <div class="heroText">
+                            <center><h1 class="text-white mb-lg-5 mb-3" style="margin-bottom: 1px;">Cars Library</h1></center>
+                        </div>
+                    </div>
+                    <div class="video-wrap">
+                        <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                            <source src="{% static 'PaginaAutos/images/videoplayback.mp4'%}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                    </div>    
+
+                </div>
+            </div>
+        </section>
+        {% block contenido %}
+
+        <section>
+            <div class="contenedor-4">
+                        {% if request.user.is_authenticated %}
+                            <h2 class="text-center mb-lg-5 mb-4">Bienvenido {{request.user}}</h2>
+                        {% else %}
+                            <h2 class="text-center mb-lg-5 mb-4">Bienvenido</h2>
+                        {% endif %}
+                    <div class="sec-home1">
+                        <div class="sec-home">
+                        <a href="{% url 'marcas-list' %}" class="home-link">Marcas con la que Cars Library trabaja</a>
+                        <span class="home-icon"><i class="bi bi-arrow-right"></i></span>
+                        <h3 class="home-title">La mejor libreria de autos, crea tu cuenta ahora!</h3>
+                        <p class="home-text d-none d-md-block">Carls library es un enciclopedia de autos donde puedes ver las caracteristicas mas importantes</p>
+                        <div class="form-account">
+                            <a class="custom-btn btn btn-danger" href="{% url 'auth-register' %}">Crear Cuenta</a>
+                        </div>
+                    </div>
+                    <div id="carouselExample" class="carousel slide carousel-home d-none d-md-block">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="{% static 'C:\Users\juanc\Desktop\Proyecto-Autos-main - copia\media\profiles\auto1.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="{% static 'C:\Users\juanc\Desktop\Proyecto-Autos-main - copia\media\profiles\auto2.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="{% static 'C:\Users\juanc\Desktop\Proyecto-Autos-main - copia\media\profiles\auto3.jpg' %}" class="d-block w-100" alt="...">
+                        </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    </div>
+                    <section class="sec-kpis">
+                        <div class="kpi">
+                            <span>+10</span>
+                            <p>Marcas</p>
+                        </div>
+                        <div class="kpi">
+                            <span>+100</span>
+                            <p>Autos cargados</p>
+                        </div>
+                        <div class="kpi">
+                            <span>+5000</span>
+                            <p>Usuarios activos</p>
+                        </div>  
+                    </section>
+                    <section class="sec-on-boarding">
+                        <div class="intro">
+                            <h2>Crea tu cuenta en minutos</h2>
+                            <p>Cars Library tiene la informacion mas importante que busca</p>
+                        </div>
+                        <div class="bording-cards">
+                            <div class="bording">
+                                <div class="icon-lg">
+                                    <span><i class="bi bi-person-fill-add"></i></span>
+                                </div>
+                                <div class="description">
+                                    <h4 class="title">Crea tu cuenta</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="bording">
+                                <div class="icon-lg">
+                                    <span><i class="bi bi-car-front-fill"></i></span>
+                                </div>
+                                <div class="description">
+                                    <h4 class="title">Busca tus autos favoritos</h4>
+                                </div>
+                            </div>
+                            <hr>    
+                            <div class="bording">
+                                <div class="icon-lg">
+                                    <span><i class="bi bi-chat"></i></span>
+                                </div>
+                                <div class="description">
+                                    <h4 class="title">Chatea en el chat global</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            </div>
+        </section>
+        {% endblock %}
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>

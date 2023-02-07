@@ -1,0 +1,90 @@
+{% extends 'PaginaAutos/index.html'%} {% block contenido %}
+<head>
+  <style>
+    select.text,
+    textarea.text {
+      background: white;
+      border: 1px solid #393939;
+      border-radius: 5px 5px 5px 5px;
+      font-size: 12px;
+      padding: 5px;
+    }
+
+    .text {
+      margin: 3rem 0;
+      height: 3rem;
+    }
+    .custom-btn2 {
+      border: 0;
+      color: var(--white-color);
+      font-size: var(--menu-font-size);
+      padding: 3px 10px;
+    }
+    #header h5 {
+      display: inline;
+    }
+    .opciones {
+      margin-left: 20%;
+    }
+    @media screen and (max-width:768px) {
+      .opciones {
+      margin-left: 0%;
+    }
+      btn {
+        width: 2rem;
+      }
+    }
+  </style>
+</head>
+<div class="container" style="background-color: white;">
+  <div class="menu-2 rounded bg-white text-secondary" style="border: none; outline: none; box-shadow: none;">
+      {% load static %}
+      <div>
+        <h3 style="margin-left: 40px">Buscar Auto</h3>
+      <form action="{% url 'resultado-buscar-auto'%}" method="get" class="form" style="margin-left: 40px">
+        <input class="form-control" style="margin-top: 1re,; margin-bottom: 3rem;" list="datalistOptions" required name="nombre" id="exampleDataList" placeholder="Busque un auto">
+        <datalist id="datalistOptions">
+          <option value="Audi RS 712">
+          <option value="BMW i43">
+          <option value="Camaro Plata">
+          <option value="Ferrari Rojo">
+          <option value="Fiat Rey">
+          </datalist>
+      </form>
+    </div>
+    <div>
+        <center><h3 style="margin-left: 20px">Lista de Autos</h3></center>
+          {% for auto in object_list %}
+            <div class="card mb-3">
+              <img src="{{auto.imagen.url}}" class="card-img-top" alt="Auto">
+              <div class="card-body ">
+                <h5 class="card-title">{{auto.nombre}}</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            {% if user.is_staff %}
+            <div class="opciones">
+              <a
+              href="{% url 'autos-detalle' auto.id%}"
+              class="custom-btn2 btn-primary"
+              >Detalle</a>
+            <a
+              href="{% url 'autos-borrar' auto.id%}"
+              class="custom-btn2 btn-danger"
+              >Borrar</a
+            >
+            <a
+              href="{% url 'autos-update' auto.id%}"
+              class="custom-btn2 btn-success"
+              >Actualizar</a
+            >
+          </div>
+              </div>
+            </div>
+            {% endif %}
+          <br />
+          {% endfor %}
+      </div>
+  </div>
+  
+  {% endblock %}
+</div>

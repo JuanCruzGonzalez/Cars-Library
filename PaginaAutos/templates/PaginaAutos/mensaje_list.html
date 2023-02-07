@@ -1,0 +1,22 @@
+{% extends 'PaginaAutos/index.html'%}
+
+{% block contenido %}
+{% load static %}
+<section class="menu-6 section-padding">
+    <center><h3>Mensajes</h3></center>
+    {% for m in object_list %}
+        <div class="mensaje">
+            <ol id="header">
+                <span><h7>{{m.user}}</h7></span>(
+                <span>{{m.tiempo}})</span>:
+                <span><h7>{{m.mensaje}}</h7></span>                
+            </ol>
+        </div>
+            <br>
+    {% endfor %}
+    <div id="menu">
+        <p><a style="position:sticky; margin-top: 1vw; margin-left: 30vw;"href="{% url 'autos-chat' %}" class="custom-btn btn btn-danger">Volver</a></p>
+    </div>
+</section>
+{% endblock %}
+

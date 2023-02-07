@@ -1,0 +1,214 @@
+
+{% extends 'PaginaAutos/index.html'%}
+
+{% block contenido %}
+{% load static %}
+
+<section class="menu-6 section-padding">
+    <center><h2 style="color:black;">Marcas</h2></center>
+    <center><h6 style="color:black; ">En este espacio puede ver todas la marcas de autos que tenemos en esta pagina</h6></center>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/ford.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+                    
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Ford' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/chevrolet.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Chevrolet' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/audis.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Audi' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/ferrari.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Ferrari' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/lamborgini.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Lamborgini' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/volkswagen.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Volkswagen' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/renault.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Renault' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/honda.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Honda' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img href="audi.html"><img src="{% static 'PaginaAutos/images/toyota.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Toyota' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img href="ferrari.html"><img src="{% static 'PaginaAutos/images/peugeot.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Peugeot' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img href="lamborgini.html"><img src="{% static 'PaginaAutos/images/fiat.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'Fiat' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="menu-thumb">
+                    <div class="menu-image-wrap">
+                        <img><img src="{% static 'PaginaAutos/images/bmw.jpg' %}" class="img-fluid menu-image" alt=""></img>
+                    </div>
+
+                    <div class="menu-info d-flex flex-wrap align-items-center">
+                        {% for marca in object_list %}
+                        {% if marca.nombre == 'BMW' %}
+                        <a href="{% url 'marcas-detalle' marca.id%}"  class="mb-0"><h4>{{ marca.nombre }}</h4></a>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

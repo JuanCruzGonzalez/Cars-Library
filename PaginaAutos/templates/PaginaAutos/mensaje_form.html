@@ -1,0 +1,35 @@
+{% extends 'PaginaAutos/index.html'%}
+
+{% block contenido %}
+<head>
+</head>
+{% load static %}
+<section class="menu-5 section-padding">
+    <center><h2 class="text-black mb-lg-5 mb-3">Bienvenido a Chat Global</h2></center>
+    <div id="wrapper">
+        
+    </div>
+    <ul>
+        <form onReset="función" method="post">
+            {% csrf_token %}
+            <div>
+                <center class="btn-custom btn btn-danger-2   text-white" style="height: 46px;">{{ form.non_field_errors }}
+                    <div class="fieldWrapper">
+                        {{ form.errors }}
+                        <label for="" style="width: 10;">{{ form.mensaje.label_tag }}</label>
+                        {{ form.mensaje }}
+                        <span class="helptext">{{ form.help_text }}</span>
+                        <input type="submit" value="Enviar" class="btn-send"><br><br><br>
+                    </div></center>
+            </div>
+            <br>
+            <div class="d-grid gap-2 d-md-block">
+                <p><a class="btn btn-success" href="{% url 'chat-list' %}">Ver mensajes de usuarios<a></p>
+                <p><a href="{% url 'autos-inicio' %}" class="btn btn-danger">Salir del Chat</a></p>
+            </div>
+        </form>  
+    </ul>
+</section>
+
+
+{% endblock %}

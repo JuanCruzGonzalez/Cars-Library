@@ -1,0 +1,16 @@
+{% extends 'PaginaAutos/index.html'%} {% block contenido %}
+
+<section class="menu-6 section-padding">
+  <div class="card" style="width: auto">
+    <img src="{{auto.imagen.url}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{auto.nombre}}</h5>
+      <h5 class="card-title">Marca: {{auto.marca}}</h5>
+      <h5 class="card-title">Modelo: {{auto.modelo}}</h5>
+      <h5 class="card-title">Motor: {{auto.motor}}</h5>
+      <a href="{% url 'autos-list' %}" class="btn btn-danger">Volver a lista de autos</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
